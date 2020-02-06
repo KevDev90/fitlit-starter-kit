@@ -31,6 +31,11 @@ const sampleHydrationData = [
   },
   {
     "userID": 2,
+    "date": "2019/06/17",
+    "numOunces": 96
+  },
+  {
+    "userID": 2,
     "date": "2019/06/18",
     "numOunces": 70
   },
@@ -38,8 +43,24 @@ const sampleHydrationData = [
     "userID": 2,
     "date": "2019/06/19",
     "numOunces": 76
-  }]
-  
+  },
+  {
+    "userID": 2,
+    "date": "2019/06/20",
+    "numOunces": 71
+  },
+  {
+    "userID": 2,
+    "date": "2019/06/21",
+    "numOunces": 27
+  },
+  {
+    "userID": 2,
+    "date": "2019/06/22",
+    "numOunces": 58
+  }
+]
+
   if (typeof module !== 'undefined') {
     module.exports = sampleHydrationData;
   }

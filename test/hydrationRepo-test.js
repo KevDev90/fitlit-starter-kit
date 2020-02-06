@@ -20,15 +20,48 @@ describe('HydrationRepository', () => {
   });
 
   it('should be able to get a user by id', () => {
-    expect(hydrationRepository.getUserById(2)).to.deep.equal({"userID": 2, "date": "2019/06/15", "numOunces": 75
-    });
+    expect(hydrationRepository.getUserById(2)).to.deep.equal(
+    [{"userID": 2,
+      "date":
+      "2019/06/15",
+      "numOunces": 75
+    },
+    {
+      "userID": 2,
+      "date": "2019/06/16",
+      "numOunces": 91
+    },
+    {
+      "userID": 2,
+      "date": "2019/06/17",
+      "numOunces": 96
+    },
+    {
+      "userID": 2,
+      "date": "2019/06/18",
+      "numOunces": 70
+    },
+    {
+      "userID": 2,
+      "date": "2019/06/19",
+      "numOunces": 76
+    },
+    {
+      "userID": 2,
+      "date": "2019/06/20",
+      "numOunces": 71
+    },
+    {
+      "userID": 2,
+      "date": "2019/06/21",
+      "numOunces": 27
+    },
+    {
+      "userID": 2,
+      "date": "2019/06/22",
+      "numOunces": 58
+    }]);
   });
-
-  it('should be able to calculate a user\'s average daily hydration', () => {
-    hydrationRepository.getUserById(2);
-    expect(hydrationRepository.getTotalDailyHydrationAvg().to.equal(78));
-  });
-
 });
 
 //

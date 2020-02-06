@@ -8,11 +8,6 @@ class HydrationRepository {
     this.hydrationUser = this.hydrationData.filter(user => user.userID === userId);
     return this.hydrationUser;
   }
-
-  // getTotalDailyHydrationAvg() {
-  //   let dailyHydration = this.hydrationData.filter(user => user.userID )
-  // }
-
 }
 
 if (typeof module !== 'undefined') {
