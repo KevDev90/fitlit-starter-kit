@@ -1,6 +1,8 @@
 const randomUser = Math.ceil(Math.random() * 50);
 const userRepository = new UserRepository(userData);
 const user = new User(userRepository.getUserData(randomUser));
+const hydration = new Hydration(hydrationData);
+const hydrationRepo = new HydrationRepository(hydrationData);
 
 
 function populateUserInfo() {
@@ -15,13 +17,21 @@ function populateUserInfo() {
 populateUserInfo();
 
 function populateCurrentDate() {
-  var today = new Date();
-  var dd = String(today.getDate()).padStart(2, '0');
-  var mm = String(today.getMonth() + 1).padStart(2, '0');
-  var yyyy = today.getFullYear();
+  var today;
+  var dd = '05'
+  var mm = '07'
+  var yyyy = '2019'
   today = mm + '/' + dd + '/' + yyyy;
   document.getElementById('current-date').innerText = today;
+  return today;
 }
+
+function populateHydrationInfo() {
+  document.getElementById('hydration-today').innerText = `${hydration.getDailyHydration(user.id, '2019/07/05')} Ounces!`;
+  document.getElementById('weeks-water').innerText = hydration.getWeeklyHydration(user.id, '2019/07/05')
+}
+
+populateHydrationInfo();
 
 function calcStepPercentage() {
   document.getElementById('step-goal-comparison').innerText = user.dailyStepGoal;
