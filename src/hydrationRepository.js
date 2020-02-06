@@ -9,10 +9,6 @@ class HydrationRepository {
     return this.hydrationUser;
   }
 
-  // getTotalDailyHydrationAvg() {
-  //   let dailyHydration = this.hydrationData.filter(user => user.userID )
-  // }
-
 }
 
 if (typeof module !== 'undefined') {
