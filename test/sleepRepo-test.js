@@ -36,4 +36,23 @@ describe ('SleepRepository', () => {
   it('should get average sleep quality for all users', () => {
     expect(sleepRepository.getAllAvgSleepQuality()).to.equal(3.02);
   });
+
+  it('should get all user ids', () => {
+    expect(sleepRepository.getAllUserIds()).to.eql([ 1, 2, 3, 4, 5 ]);
+  });
+
+  it('should get all users who have a sleep quality above three', () => {
+    expect(sleepRepository.getSleepQualityAvgAboveThree('2019/06/22')).to.eql([
+      2, 3, 5 ]);
+  });
+
+  it('should get user with the most hours slept by day', () => {
+    expect(sleepRepository.getHighestDailySleepHours('2019/06/21')).to.eql(4);
+  });
+
+  it('should get user with the least hours slept by day', () => {
+    expect(sleepRepository.getLowestDailySleepHours('2019/06/21')).to.eql(2);
+  });
+
+
 })
