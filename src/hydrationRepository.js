@@ -8,7 +8,6 @@ class HydrationRepository {
     this.hydrationUser = this.hydrationData.filter(user => user.userID === userId);
     return this.hydrationUser;
   }
-
 }
 
 if (typeof module !== 'undefined') {

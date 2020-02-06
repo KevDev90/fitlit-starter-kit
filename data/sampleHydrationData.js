@@ -53,6 +53,11 @@ const sampleHydrationData = [
     "userID": 2,
     "date": "2019/06/21",
     "numOunces": 27
+  },
+  {
+    "userID": 2,
+    "date": "2019/06/22",
+    "numOunces": 58
   }
 ]
 

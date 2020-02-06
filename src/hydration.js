@@ -3,6 +3,7 @@ class Hydration {
     this.hydrationInfo = hydrationInfo;
   }
 
+
   getTotalDailyHydrationAvg(userId) {
     let userHydration = this.hydrationInfo.filter(user => user.userID === userId);
     let hydration = userHydration.reduce((ounces, user) => {
@@ -23,9 +24,10 @@ class Hydration {
 
   getWeeklyHydration(userId, date) {
     let userHydration = this.hydrationInfo.filter(user => user.userID === userId);
-
+    let todayIndex = userHydration.findIndex(user => user.date === date);
+    let ouncesPerWeek = userHydration.slice(todayIndex - 6, todayIndex + 1).map(user => user.numOunces)
+    return ouncesPerWeek;
   }
-
 }
 
 if (typeof module !== 'undefined') {
