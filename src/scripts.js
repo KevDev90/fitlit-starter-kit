@@ -3,6 +3,8 @@ const userRepository = new UserRepository(userData);
 const user = new User(userRepository.getUserData(randomUser));
 const hydration = new Hydration(hydrationData);
 const hydrationRepo = new HydrationRepository(hydrationData);
+const sleep = new Sleep(sleepData);
+const sleepRepo = new SleepRepository(sleepData);
 
 
 function populateUserInfo() {
@@ -41,5 +43,12 @@ function calcStepPercentage() {
 calcStepPercentage();
 
 populateCurrentDate();
+
+function populateDailySleep() {
+  document.getElementById('days-sleep').innerText = sleep.getSleepHoursByDate(user.id, '2019/07/05');
+  document.getElementById('days-sleep-quality').innerText = sleep.getSleepQualityByDate(user.id, '2019/07/05');
+}
+
+populateDailySleep();
 
 //
