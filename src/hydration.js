@@ -3,7 +3,6 @@ class Hydration {
     this.hydrationInfo = hydrationInfo;
   }
 
-
   getTotalDailyHydrationAvg(userId) {
     let userHydration = this.hydrationInfo.filter(user => user.userID === userId);
     let hydration = userHydration.reduce((ounces, user) => {
