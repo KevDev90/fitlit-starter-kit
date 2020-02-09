@@ -4,7 +4,15 @@ class Activity {
     this.strideLength = user.strideLength;
     this.dailyStepGoal = user.dailyStepGoal;
     this.date = {};
+    this.friends = user.friends;
+    this.friendsInfo;
   }
+
+  // getUserFriendsActivity(id) {
+  //   this.friendsInfo = this.activityInfo.filter(friend => user.userID === id);
+  //   return this.friendsInfo;
+  // }
+
 
   getActivityInfoByDate(date) {
     this.date = this.activityInfo.find(function (loggedActivity) {
@@ -64,6 +72,10 @@ class Activity {
     let todayIndex = this.activityInfo.findIndex(user => user.date === date);
     let sleepPerWeek = this.activityInfo.slice(todayIndex - 6, todayIndex + 1).map(user => user.numSteps)
     return sleepPerWeek;
+  }
+
+  getStepChallengeWinner() {
+    
   }
 
 }

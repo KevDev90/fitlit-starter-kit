@@ -2,6 +2,9 @@ const chai = require('chai');
 const expect = chai.expect;
 const sampleUserData = require('../data/sampleUserData');
 const User = require('../src/users');
+const Activity = require('../src/activity');
+const sampleActivityData = require('../data/sampleActivityData');
+const ActivityRepository = require('../src/activityRepository');
 
 describe('User', function() {
 
@@ -53,8 +56,19 @@ describe('User', function() {
   });
 
   it('should be able to return a user\'s friend\'s first names', function() {
+    user.getFriendSteps(sampleUserData, sampleActivityData, '2019/06/21');
+    console.log(user.friendSteps);
     expect(user.findFriendsNames(sampleUserData)).to.deep.equal(['Luisa', 'Mae', 'Herminia', 'Erick'])
-  })
+  });
+
+  it('should be able to return a user\'s friends\' weekly steps', function() {
+    expect(user.getFriendSteps(sampleUserData, sampleActivityData, '2019/06/21')).to.eql(
+  [{ friendName: 'Luisa', weeklySteps: 58629 },
+  { friendName: 'Mae', weeklySteps: 60963 },
+  { friendName: 'Herminia', weeklySteps: 50627 },
+  { friendName: 'Erick', weeklySteps: 54460 }])
+});
+
 });
 
 //

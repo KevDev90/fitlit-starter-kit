@@ -8,6 +8,7 @@ constructor(userInfo) {
   this.dailyStepGoal = userInfo.dailyStepGoal;
   this.friends = userInfo.friends;
   this.friendNames;
+  this.friendSteps;
 }
 
   returnUserFirstName() {
@@ -26,6 +27,28 @@ constructor(userInfo) {
     })
     return this.friendNames;
   }
+
+  getFriendSteps(userData, activityData, date) {
+    this.findFriendsNames(userData);
+    this.friendSteps = this.friends.reduce((acc, friendId) => {
+      let friendData = activityData.filter(data =>
+        data.userID === friendId);
+      let friendIndex = friendData.findIndex(data => data.date === date);
+      let friendWeekData = friendData.slice(friendIndex - 6, friendIndex + 1);
+      let totalWeekSteps = 0;
+      friendWeekData.forEach(data => {
+        totalWeekSteps += data.numSteps
+      });
+      let friend = this.friendNames.shift();
+      acc.push({
+        'friendName': friend,
+        'weeklySteps': totalWeekSteps
+      });
+      return acc;
+    }, [])
+    return this.friendSteps;
+  }
+
 }
 
 if (typeof module !== 'undefined') {
