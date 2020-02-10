@@ -108,7 +108,7 @@ beforeEach(() => {
   });
 
   it('should know how many minutes a user was active on a given date', () => {
-    expect(activity.getDailyActivityByMinutes('minutesActive', '2019/06/17')).
+    expect(activity.getDailyActivityStatForDate('minutesActive', '2019/06/17')).
       to.equal(97);
   });
 
