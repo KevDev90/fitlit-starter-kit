@@ -17,7 +17,7 @@ class Activity {
     return Math.round(this.date.numSteps * this.strideLength / 5280 * 10) / 10;
   }
 
-  getDailyActivityByMinutes(activity, date) {
+  getDailyActivityStatForDate(activity, date) {
     this.getActivityInfoByDate(date);
     return this.date[activity];
   }
@@ -62,10 +62,17 @@ class Activity {
   getStepsWalkedByWeek(date) {
     this.getActivityInfoByDate(date);
     let todayIndex = this.activityInfo.findIndex(user => user.date === date);
-    let sleepPerWeek = this.activityInfo.slice(todayIndex - 6, todayIndex + 1).map(user => user.numSteps)
-    return sleepPerWeek;
+    let stepsPerWeek = this.activityInfo.slice(todayIndex - 6, todayIndex + 1).map(user => user.numSteps)
+    return stepsPerWeek;
   }
 
+  getTotalStepsByWeek(date) {
+    let stepsWalked = this.getStepsWalkedByWeek(date);
+    return stepsWalked.reduce((acc, steps) => {
+      acc += steps
+    return acc;
+    }, 0)
+  }
 }
 
 if (typeof module !== 'undefined') {
