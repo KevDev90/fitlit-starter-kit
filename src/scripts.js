@@ -5,6 +5,9 @@ const hydration = new Hydration(hydrationData);
 const hydrationRepo = new HydrationRepository(hydrationData);
 const sleep = new Sleep(sleepData);
 const sleepRepo = new SleepRepository(sleepData);
+const activityRepo = new ActivityRepository(activityData);
+const activity = new Activity(activityRepo.getUserById(user.id), user);
+const date = '2019/07/05';
 
 
 function populateUserInfo() {
@@ -64,5 +67,21 @@ populateWeeklySleep();
 populateDailySleep();
 
 populateAllTimeSleep()
+
+function populateActivityInfo() {
+  document.getElementById('recent-steps').innerText = activity.getDailyActivityStatForDate('numSteps', date);
+  document.getElementById('recent-minutes-active').innerText = activity.getDailyActivityStatForDate('minutesActive', date);
+  document.getElementById('recent-stairs-count').innerText = activity.getDailyActivityStatForDate('flightsOfStairs', date);
+  document.getElementById('weekly-step-count').innerText = activity.getStepsWalkedByWeek(date);
+  document.getElementById('weekly-stairs-count').innerText = activity.getWeeklyActivityByMinutes('flightsOfStairs', date);
+  document.getElementById('weekly-minutes-active').innerText = activity.getWeeklyActivityByMinutes('minutesActive', date);
+  document.getElementById('recent-avg-steps').innerText = activityRepo.getAllAvgActivityByDate('numSteps', date);
+  document.getElementById('recent-avg-minutes-active').innerText = activityRepo.getAllAvgActivityByDate('minutesActive', date);
+  document.getElementById('recent-avg-stairs-count').innerText = activityRepo.getAllAvgActivityByDate('flightsOfStairs', date);
+  document.getElementById('recent-miles-walked').innerText = activity.getMilesWalked(date);
+  document.getElementById('weekly-total-steps').innerText = activity.getTotalStepsByWeek(date);
+}
+
+populateActivityInfo()
 
 //
