@@ -10,6 +10,7 @@ const activity = new Activity(activityRepo.getUserById(user.id), user);
 const date = '2019/07/05';
 
 
+
 function populateUserInfo() {
   document.getElementById("user-name").innerText = user.returnUserFirstName();
   document.getElementById('user-address').innerText = user.address;
@@ -80,6 +81,7 @@ function populateActivityInfo() {
   document.getElementById('recent-avg-stairs-count').innerText = activityRepo.getAllAvgActivityByDate('flightsOfStairs', date);
   document.getElementById('recent-miles-walked').innerText = activity.getMilesWalked(date);
   document.getElementById('weekly-total-steps').innerText = activity.getTotalStepsByWeek(date);
+  document.getElementById('three-day-step-streak').innerText = activityRepo.getStepIncreaseOverThreeDays('numSteps', user.id);
 }
 
 populateActivityInfo()
@@ -98,3 +100,78 @@ function showStepChallengeWinner() {
 showStepChallengeWinner();
 
 //
+var ctx = document.getElementById('myChart');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Your Daily Steps', 'Your Daily Step Goal', 'Average User Steps', 'Average User Step Goal' ],
+        datasets: [{
+            label: 'Daily Steps Stats',
+            data: [activity.getDailyActivityStatForDate('numSteps', date), user.dailyStepGoal , activityRepo.getAllAvgActivityByDate('numSteps', date) , userRepository.calcAverageStepGoal() ],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(153, 102, 255, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+
+var ctx2 = document.getElementById('myChart2');
+var myChart = new Chart(ctx2, {
+    type: 'line',
+    data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
