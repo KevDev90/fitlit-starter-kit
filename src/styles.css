@@ -15,7 +15,6 @@ main {
   background-position: center;
   background-size: cover;
   width: 100%;
-
 }
 
 header {
@@ -37,7 +36,7 @@ section {
   opacity: .9;
   padding: 10px;
   text-align: center;
-  width: 330px;
+  width: 380px;
 }
 
 .water__img {
