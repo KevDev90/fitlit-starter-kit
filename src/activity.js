@@ -17,7 +17,7 @@ class Activity {
     return Math.round(this.date.numSteps * this.strideLength / 5280 * 10) / 10;
   }
 
-  getDailyActivityByMinutes(activity, date) {
+  getDailyActivityStatForDate(activity, date) {
     this.getActivityInfoByDate(date);
     return this.date[activity];
   }
