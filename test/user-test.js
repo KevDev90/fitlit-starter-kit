@@ -2,14 +2,22 @@ const chai = require('chai');
 const expect = chai.expect;
 const sampleUserData = require('../data/sampleUserData');
 const User = require('../src/users');
+const Activity = require('../src/activity');
+const sampleActivityData = require('../data/sampleActivityData');
+const ActivityRepository = require('../src/activityRepository');
 
 describe('User', function() {
 
   let user;
   let userInfo;
+  let activity;
+  let activityInfo;
 
   beforeEach(function() {
-    user = new User(sampleUserData[1])
+    user = new User(sampleUserData[1]);
+    activityRepository = new ActivityRepository(sampleActivityData);
+    let activityInfo = activityRepository.getUserById(3);
+    activity = new Activity(activityInfo, user);
   });
 
   it('should be a function', function() {
@@ -53,8 +61,25 @@ describe('User', function() {
   });
 
   it('should be able to return a user\'s friend\'s first names', function() {
+    user.getFriendSteps(sampleUserData, sampleActivityData, '2019/06/21');
     expect(user.findFriendsNames(sampleUserData)).to.deep.equal(['Luisa', 'Mae', 'Herminia', 'Erick'])
-  })
+  });
+
+  it('should be able to return a user\'s friends\' weekly steps', function() {
+    expect(user.getFriendSteps(sampleUserData, sampleActivityData, '2019/06/21')).to.eql(
+  [{ friendName: 'Luisa', weeklySteps: 58629 },
+  { friendName: 'Mae', weeklySteps: 60963 },
+  { friendName: 'Herminia', weeklySteps: 50627 },
+  { friendName: 'Erick', weeklySteps: 54460 }])
+});
+
+  it('should be able to determine who of the user\'s friends had the most steps in a week', function() {
+    user.getFriendSteps(sampleUserData, sampleActivityData, '2019/06/21');
+    user.findStepChallengeWinner();
+    activity.getTotalStepsByWeek('2019/06/21');
+    expect(user.friendSteps[0].friendName).to.equal('Mae');
+  });
+
 });
 
 //
