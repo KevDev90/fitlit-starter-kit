@@ -28,7 +28,7 @@ header {
 }
 
 section {
-  background-color: #ccb232;
+  background-color: #fff;
   border: solid 6px rgb(32, 11, 43);
   cursor: pointer;
   float: left;
@@ -38,6 +38,7 @@ section {
   padding: 10px;
   text-align: center;
   width: 330px;
+  color: black;
 }
 
 .water__img {
