@@ -83,5 +83,19 @@ function populateActivityInfo() {
 }
 
 populateActivityInfo()
+function showStepChallengeWinner() {
+  let challengeWinner = document.getElementById('weekly-step-challenge');
+  user.getFriendSteps(userData, activityData, '2019/07/05')
+  user.findStepChallengeWinner();
+  console.log(user.friendSteps);
+  // console.log(activity.getTotalStepsByWeek('2019/07/05'))
+  if(user.friendSteps[0].weeklySteps > activity.getTotalStepsByWeek('2019/07/05')) {
+    challengeWinner.innerText = `Nice try, but your friend ${user.friendSteps[0].friendName} won your weekly step challenge with ${user.friendSteps[0].weeklySteps} steps!`
+  } else {
+    challengeWinner.innerText = 'Congratulations! You beat your friends in your weekly step challenge!'
+  }
+}
+
+showStepChallengeWinner();
 
 //
