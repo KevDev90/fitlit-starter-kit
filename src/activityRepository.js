@@ -47,7 +47,13 @@ class ActivityRepository {
       }
     return acc;
   }, {streaks: [], currentStreak: []})
-    console.log(trend, 'trend')
+  let streakDisplays = []
+    trend.streaks.forEach(streak => {
+      streakDisplays.push(streak[0].date)
+      streakDisplays.push(streak[streak.length -1].date)
+      streakDisplays.push(streak.length)
+    })
+    return streakDisplays
   }
 
 
