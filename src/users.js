@@ -7,6 +7,7 @@ constructor(userInfo) {
   this.strideLength = userInfo.strideLength;
   this.dailyStepGoal = userInfo.dailyStepGoal;
   this.friends = userInfo.friends;
+  this.totalWeeklySteps;
   this.friendNames;
   this.friendSteps;
 }
@@ -49,7 +50,12 @@ constructor(userInfo) {
     return this.friendSteps;
   }
 
+  findStepChallengeWinner() {
+      this.friendSteps.sort((friend1, friend2) =>
+      friend2.weeklySteps - friend1.weeklySteps);
+  }
 }
+
 
 if (typeof module !== 'undefined') {
   module.exports = User;

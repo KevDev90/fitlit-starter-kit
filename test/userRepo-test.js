@@ -4,7 +4,6 @@ const UserRepository = require('../src/userRepository');
 const sampleUserData = require('../data/sampleUserData');
 
 
-
 describe('UserRepository', () => {
 
   let userRepository;

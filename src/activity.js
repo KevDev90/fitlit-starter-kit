@@ -4,21 +4,28 @@ class Activity {
     this.strideLength = user.strideLength;
     this.dailyStepGoal = user.dailyStepGoal;
     this.date = {};
-    this.friends = user.friends;
-    this.friendsInfo;
+    // this.friends = user.friends;
+    // this.friendsInfo;
+    // this.totalWeeklySteps;
   }
-
-  // getUserFriendsActivity(id) {
-  //   this.friendsInfo = this.activityInfo.filter(friend => user.userID === id);
-  //   return this.friendsInfo;
-  // }
-
 
   getActivityInfoByDate(date) {
     this.date = this.activityInfo.find(function (loggedActivity) {
       return loggedActivity.date === date
     })
   }
+
+  // getStepIncreaseOverThreeDays() {
+  //   let days = this.activityInfo.reduce((acc, day, index) => {
+  //     console.log(acc[index])
+  //   if (day.numSteps[index] < day.numSteps[index + 1]) {
+  //     acc.push(day.date)
+  //   }
+  //   return acc;
+  //   }, [])
+  // }
+
+
 
   getMilesWalked(date) {
     this.getActivityInfoByDate(date);
@@ -70,14 +77,17 @@ class Activity {
   getStepsWalkedByWeek(date) {
     this.getActivityInfoByDate(date);
     let todayIndex = this.activityInfo.findIndex(user => user.date === date);
-    let sleepPerWeek = this.activityInfo.slice(todayIndex - 6, todayIndex + 1).map(user => user.numSteps)
-    return sleepPerWeek;
+    let stepsPerWeek = this.activityInfo.slice(todayIndex - 6, todayIndex + 1).map(user => user.numSteps)
+    return stepsPerWeek;
   }
 
-  getStepChallengeWinner() {
-    
+  getTotalStepsByWeek(date) {
+    let stepsWalked = this.getStepsWalkedByWeek(date);
+    return stepsWalked.reduce((acc, steps) => {
+      acc += steps
+    return acc;
+    }, 0)
   }
-
 }
 
 if (typeof module !== 'undefined') {
