@@ -73,6 +73,7 @@ class Activity {
     return acc;
     }, 0)
   }
+
 }
 
 if (typeof module !== 'undefined') {
