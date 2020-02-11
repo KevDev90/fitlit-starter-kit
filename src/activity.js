@@ -4,9 +4,6 @@ class Activity {
     this.strideLength = user.strideLength;
     this.dailyStepGoal = user.dailyStepGoal;
     this.date = {};
-    // this.friends = user.friends;
-    // this.friendsInfo;
-    // this.totalWeeklySteps;
   }
 
   getActivityInfoByDate(date) {
@@ -14,18 +11,6 @@ class Activity {
       return loggedActivity.date === date
     })
   }
-
-  // getStepIncreaseOverThreeDays() {
-  //   let days = this.activityInfo.reduce((acc, day, index) => {
-  //     console.log(acc[index])
-  //   if (day.numSteps[index] < day.numSteps[index + 1]) {
-  //     acc.push(day.date)
-  //   }
-  //   return acc;
-  //   }, [])
-  // }
-
-
 
   getMilesWalked(date) {
     this.getActivityInfoByDate(date);
