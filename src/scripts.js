@@ -80,6 +80,7 @@ function populateActivityInfo() {
   document.getElementById('recent-avg-stairs-count').innerText = activityRepo.getAllAvgActivityByDate('flightsOfStairs', date);
   document.getElementById('recent-miles-walked').innerText = activity.getMilesWalked(date);
   document.getElementById('weekly-total-steps').innerText = activity.getTotalStepsByWeek(date);
+  activityRepo.getStepIncreaseOverThreeDays('minutesActive', user.id);
 }
 
 populateActivityInfo()
