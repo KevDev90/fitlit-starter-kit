@@ -21,7 +21,7 @@ constructor(userInfo) {
     this.friendNames = [];
     this.friends.map(friend => {
       userData.forEach(person => {
-        if(person.id === friend) {
+        if (person.id === friend) {
           this.friendNames.push(person.name.split(' ')[0]);
         }
       })
@@ -55,7 +55,6 @@ constructor(userInfo) {
       friend2.weeklySteps - friend1.weeklySteps);
   }
 }
-
 
 if (typeof module !== 'undefined') {
   module.exports = User;

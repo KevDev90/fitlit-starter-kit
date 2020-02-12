@@ -73,6 +73,7 @@ class Activity {
     return acc;
     }, 0)
   }
+
   getStairsClimbedByWeek(date) {
       this.getActivityInfoByDate(date);
       let todayIndex = this.activityInfo.findIndex(user => user.date === date);

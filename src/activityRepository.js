@@ -20,14 +20,15 @@ class ActivityRepository {
   getStepIncreaseOverThreeDays(activity, id) {
     let activities = this.getUserById(id);
     let trend = activities.reduce((acc, day) => {
-      if(acc.currentStreak.length === 0 ) {
+      if (acc.currentStreak.length === 0 ) {
         acc.currentStreak.push(day);
         return acc;
       }
-      if(acc.currentStreak[acc.currentStreak.length - 1][activity] < day[activity]) {
+      if (acc.currentStreak[acc.currentStreak.length - 1][activity] < day[activity]) {
         acc.currentStreak.push(day)
       } else {
-        if(acc.currentStreak.length > 2) acc.streaks.push(acc.currentStreak);
+        if (acc.currentStreak.length > 2) { acc.streaks.push(acc.currentStreak);
+      }
         acc.currentStreak = [day];
       }
     return acc;
@@ -35,13 +36,11 @@ class ActivityRepository {
   let streakDisplays = []
     trend.streaks.forEach(streak => {
       streakDisplays.push(streak[0].date)
-      streakDisplays.push(streak[streak.length -1].date)
+      streakDisplays.push(streak[streak.length - 1].date)
       streakDisplays.push(streak.length)
     })
     return streakDisplays
   }
-
-
 }
 
 if (typeof module !== 'undefined') {

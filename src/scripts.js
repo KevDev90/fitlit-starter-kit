@@ -2,7 +2,6 @@ const randomUser = Math.ceil(Math.random() * 50);
 const userRepository = new UserRepository(userData);
 const user = new User(userRepository.getUserData(randomUser));
 const hydration = new Hydration(hydrationData);
-// const hydrationRepo = new HydrationRepository(hydrationData);
 const sleep = new Sleep(sleepData);
 const sleepRepo = new SleepRepository(sleepData);
 const activityRepo = new ActivityRepository(activityData);
@@ -32,7 +31,7 @@ function showStepChallengeWinner() {
   let challengeWinner = document.getElementById('weekly-step-challenge');
   user.getFriendSteps(userData, activityData, '2019/07/05')
   user.findStepChallengeWinner();
-  if(user.friendSteps[0].weeklySteps > activity.getTotalStepsByWeek('2019/07/05')) {
+  if (user.friendSteps[0].weeklySteps > activity.getTotalStepsByWeek('2019/07/05')) {
     challengeWinner.innerText = `Nice try, but your friend ${user.friendSteps[0].friendName} won your weekly step challenge with ${user.friendSteps[0].weeklySteps} steps!`
   } else {
     challengeWinner.innerText = 'Congratulations! You beat your friends in your weekly step challenge!'
