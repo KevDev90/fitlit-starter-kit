@@ -74,6 +74,12 @@ class Activity {
     }, 0)
   }
 
+  getStairsClimbedByWeek(date) {
+      this.getActivityInfoByDate(date);
+      let todayIndex = this.activityInfo.findIndex(user => user.date === date);
+      let stepsPerWeek = this.activityInfo.slice(todayIndex - 6, todayIndex + 1).map(user => user.flightsOfStairs)
+      return stepsPerWeek;
+    }
 }
 
 if (typeof module !== 'undefined') {

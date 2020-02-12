@@ -11,83 +11,58 @@
       <h3>Today's Date: <span id="current-date"></span></h3>
     </header>
     <main class="main__page">
-
-      <section>
-        <canvas id="myChart" width="400" height="400"></canvas>
-      </section>
-      <section>
-        <canvas id="myChart2" width="400" height="400"></canvas>
-      </section>
-
-      <div class="user-info-wrapper">
-        <section class="user-info-wrapper" id="user-info-wrapper-js">
+      <div class="hydration-wrapper">
         <h4 class="account-info">Account Info</h4>
             <p class="user-info">Address: <span id="user-address"></span></p>
             <p class="user-info">Email: <span id="user-email"></span></p>
             <p class="user-info">Stride Length: <span id="user-stride"></span></p>
-            <p class="user-info">Daily Step Goal: <span id="user-step-goal"></p>
             <p class="user-info">Friends: <span id="user-friends"></span></p>
-        </section>
-        <section class='percent-step-goal'>
-          <h4>Daily Step Goal: <span id="step-goal-comparison"></span></h4>
-          <h4>Average User Daily Step Goal: <span id="all-user-step-goal"></span></h4>
-          <img>
-        </section>
       </div>
       <div class="hydration-wrapper">
-       <section>
          <h4>Todays Water: <span id="todays-water"><p class="" id="hydration-today"></p></span></h4>
          <img class="water__img" src="../Images/drop.png" alt="Water drop image">
-       </section>
-       <section>
-         <h4>Week's Water: <span id="weeks-water"><p></p></span></h4>
-           <img class="waterbottle__img" src="../Images/water-bottle.png" alt="Water bottle image">
-       </section>
+         <h4>Todays Miles Walked: <span id="todays-miles"><p class="" id="miles-today"></p></span></h4>
      </div>
-     <div class="sleep-wrapper">
-       <section>
-         <h4>Today's Sleep Hours: <span id="days-sleep"><p></p></span></h4>
-         <!-- <img class="waterbottle__img" src="../Images/water-bottle.png"> -->
-         <h4>Today's Sleep Quality: <span id="days-sleep-quality"><p></p></span></h4>
-       </section>
-       <section>
-         <h4>This Week's Sleep Hours: <span id="weeks-sleep-hours"><p></p></span></h4>
-         <h4>This Week's Sleep Quality: <span id="weeks-sleep-quality"><p></p></span></h4>
-       </section>
-       <section>
-         <h4>All Time Average Sleep Quality: <span id="all-time-sleep-hours"><p></p></span></h4>
-         <h4>All Time Average Sleep Hours: <span id="all-time-sleep-quality"><p></p></span></h4>
-       </section>
-      </div>
-
-    <div class="activity-wrapper">
-      <section>
-        <h4>Today's number of steps for this user: <span id="recent-steps"><p></p></span></h4>
-        <h4>Today's average number of steps for all users: <span id="recent-avg-steps"><p></p></span></h4>
-        <h4>Today's minutes active for this user: <span id="recent-minutes-active"><p></p></span></h4>
-        <h4>Today's average minutes active for all users: <span id="recent-avg-minutes-active"><p></p></span></h4>
-        <h4>Today's stairs climbed for this user: <span id="recent-stairs-count"><p></p></span></h4>
-        <h4>Today's average stairs climbed for all users: <span id="recent-avg-stairs-count"><p></p></span></h4>
-      </section>
-      <section>
-        <h4>Weekly step count for this user: <span id="weekly-step-count"><p></p></span></h4>
-        <h4>Weekly flights of stairs climbed for this user: <span id="weekly-stairs-count"><p></p></span></h4>
-        <h4>Weekly minutes active for this user: <span id="weekly-minutes-active"><p></p></span></h4>
-        <h4>Total steps for the week for this user: <span id="weekly-total-steps"><p></p></span></h4>
-      </section>
-      <section>
-        <h4>Today's miles walked for this user: <span id="recent-miles-walked"><p></p></span></h4>
-      </section>
-      <section>
-        <h4>what days had increasing steps for 3 or more days?<span id="three-day-step-streak"><p></p></span></h4>
-      </section>
+    <div class="hydration-wrapper">
+        <h4>This Week's Step Challenge: <span><p id = "weekly-step-challenge"></p></span></h4>
+        <img class="shoe" src="../Images/sport.svg" alt="Shoe image">
     </div>
-    <div class="challenges">
-      <section>
-        <h4>This Week's Step Challenge: <span id="weekly-step-challenge"><p></p></span></h4>
-      </section>
-    </div>
-
+    <section>
+      <canvas id="myChart" width="400" height="400"></canvas>
+    </section>
+    <section>
+      <canvas id="myChart2" width="400" height="400"></canvas>
+    </section>
+    <section>
+      <canvas id="myChart3" width="400" height="400"></canvas>
+    </section>
+    <section>
+      <canvas id="myChart4" width="400" height="400"></canvas>
+    </section>
+    <section>
+      <canvas id="myChart5" width="400" height="400"></canvas>
+    </section>
+    <section>
+      <canvas id="myChart6" width="400" height="400"></canvas>
+    </section>
+    <section>
+      <canvas id="myChart7" width="400" height="400"></canvas>
+    </section>
+    <section>
+      <canvas id="myChart8" width="400" height="400"></canvas>
+    </section>
+    <section>
+      <canvas id="myChart9" width="400" height="400"></canvas>
+    </section>
+    <section>
+      <canvas id="myChart10" width="400" height="400"></canvas>
+    </section>
+    <section>
+      <canvas id="myChart11" width="400" height="400"></canvas>
+    </section>
+    <section>
+      <canvas id="myChart12" width="400" height="400"></canvas>
+    </section>
   </main>
      <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
      <script type="text/javascript" src="./activityRepository.js"></script>
@@ -98,7 +73,6 @@
       <script type="text/javascript" src="./hydration.js"></script>
       <script type="text/javascript" src="./users.js"></script>
       <script type="text/javascript" src="./userRepository.js"></script>
-
     <script type="text/javascript" src="../data/users.js"></script>
     <script type="text/javascript" src="../data/hydration.js"></script>
     <script type="text/javascript" src="../data/sleep.js"></script>
