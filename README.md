@@ -27,3 +27,4 @@ There is no boilerplate for testing in this starter-kit repo. You will need to s
 
 
 ![Welcome Screen](https://github.com/KevDev90/fitlit-starter-kit/blob/master/Images/screenshot2.png)
+![Activity Data](https://github.com/KevDev90/fitlit-starter-kit/blob/master/Images/screenshot1.png)
