@@ -99,4 +99,8 @@ describe('ActivityRepository', () => {
     expect(activityRepository.getAllAvgActivityByDate('minutesActive',
       '2019/06/17')).to.equal(111);
   });
+
+  it('should be able to get the streaks of 3 or more increasing sequential days based on activity type', () => {
+    expect(activityRepository.getStepIncreaseOverThreeDays('numSteps', 3)).to.eql(["2019/06/20", "2019/06/22", 3])
+  });
 });

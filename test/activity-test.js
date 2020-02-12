@@ -155,7 +155,7 @@ beforeEach(() => {
     expect(activity.getTotalStepsByWeek('2019/06/22')).to.equal(54567)
   })
 
-  it('should calculate a user's total steps per week', () => {
+  it('should calculate a user\'s total steps per week', () => {
     activity.getActivityInfoByDate('2019/06/22');
     expect(activity.getTotalStepsByWeek('2019/06/22')).to.deep.equal(54567)
   });
