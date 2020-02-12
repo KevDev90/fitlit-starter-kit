@@ -142,17 +142,19 @@ var ctx2 = document.getElementById('myChart2');
 var myChart = new Chart(ctx2, {
     type: 'line',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: ['June 29', 'June 30', 'July 1', 'July 2', 'July 3', 'July 4', 'July 5'],
         datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            label: 'Your Weekly Water (Ounces)',
+            data: [hydration.getWeeklyHydration(user.id, date)[0], hydration.getWeeklyHydration(user.id, date)[1], hydration.getWeeklyHydration(user.id, date)[2], hydration.getWeeklyHydration(user.id, date)[3], hydration.getWeeklyHydration(user.id, date)[4], hydration.getWeeklyHydration(user.id, date)[5], hydration.getWeeklyHydration(user.id, date)[6]],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
                 'rgba(255, 206, 86, 0.2)',
                 'rgba(75, 192, 192, 0.2)',
                 'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+
             ],
             borderColor: [
                 'rgba(255, 99, 132, 1)',
