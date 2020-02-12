@@ -369,6 +369,84 @@ var myChart = new Chart(ctx, {
         }
     }
 });
+var ctx2 = document.getElementById('myChart2');
+var myChart2 = new Chart(ctx2, {
+    type: 'line',
+    data: {
+        labels: ['June 29', 'June 30', 'July 1', 'July 2', 'July 3', 'July 4', 'July 5'],
+        datasets: [{
+            label: 'Your Weekly Water (Ounces)',
+            data: [hydration.getWeeklyHydration(user.id, date)[0], hydration.getWeeklyHydration(user.id, date)[1], hydration.getWeeklyHydration(user.id, date)[2], hydration.getWeeklyHydration(user.id, date)[3], hydration.getWeeklyHydration(user.id, date)[4], hydration.getWeeklyHydration(user.id, date)[5], hydration.getWeeklyHydration(user.id, date)[6]],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+
+var ctx3 = document.getElementById('myChart3');
+var myChart3 = new Chart(ctx3, {
+    type: 'line',
+    data: {
+        labels: ['June 29', 'June 30', 'July 1', 'July 2', 'July 3', 'July 4', 'July 5'],
+        datasets: [{
+            label: 'Your Weekly Sleep (hours)',
+            data: [sleep.getSleepHoursByWeek(user.id, date)[0], sleep.getSleepHoursByWeek(user.id, date)[1], sleep.getSleepHoursByWeek(user.id, date)[2], sleep.getSleepHoursByWeek(user.id, date)[3], sleep.getSleepHoursByWeek(user.id, date)[4], sleep.getSleepHoursByWeek(user.id, date)[5], sleep.getSleepHoursByWeek(user.id, date)[6]],
+            backgroundColor: [
+                'rgba(60, 155, 255, 0.5)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
 var ctx4 = document.getElementById('myChart4');
 var myChart4 = new Chart(ctx4, {
     type: 'line',
@@ -577,6 +655,85 @@ var myChart9 = new Chart(ctx9, {
                 'rgba(75, 192, 192, 1)',
                 'rgba(153, 102, 255, 1)',
                 'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+
+
+
+
+var ctx10 = document.getElementById('myChart10');
+var myChart10 = new Chart(ctx10, {
+    type: 'bar',
+    data: {
+        labels: ['Your Minutes Active', 'Average User Minutes Active', 'Your Average Minutes Active per Week' ],
+        datasets: [{
+            label: 'Minutes Active',
+            data: [activity.getDailyActivityStatForDate('minutesActive', date), activityRepo.getAllAvgActivityByDate('minutesActive', date), activity.getWeeklyActivityByMinutes('minutesActive', date)],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(153, 102, 255, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+
+var ctx11 = document.getElementById('myChart11');
+var myChart11 = new Chart(ctx11, {
+    type: 'bar',
+    data: {
+        labels: ['Your Daily Stairs Climbed', 'Average User Stairs Climbed' ],
+        datasets: [{
+            label: 'Daily Stairs Climbed',
+            data: [activity.getDailyActivityStatForDate('flightsOfStairs', date), activityRepo.getAllAvgActivityByDate('flightsOfStairs', date)],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(153, 102, 255, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)'
             ],
             borderWidth: 1
         }]
