@@ -19,7 +19,7 @@ class ActivityRepository {
 
   getStepIncreaseOverThreeDays(activity, id) {
     let activities = this.getUserById(id);
-    let trend = activities.reduce((acc, day, index) => {
+    let trend = activities.reduce((acc, day) => {
       if(acc.currentStreak.length === 0 ) {
         acc.currentStreak.push(day);
         return acc;
