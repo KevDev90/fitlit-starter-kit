@@ -25,6 +25,8 @@ npm install
 There is no boilerplate for testing in this starter-kit repo. You will need to set this up yourself. However, if you ran `npm install`, then the tooling you need to start testing is already installed (`mocha` and `chai`).
 
 
-
+## Welcome Screen:
 ![Welcome Screen](https://github.com/KevDev90/fitlit-starter-kit/blob/master/Images/screenshot2.png)
+
+## Activity Data:
 ![Activity Data](https://github.com/KevDev90/fitlit-starter-kit/blob/master/Images/screenshot1.png)
