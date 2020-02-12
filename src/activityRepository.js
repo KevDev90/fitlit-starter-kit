@@ -17,21 +17,6 @@ class ActivityRepository {
     return Math.round(totaledUpActivity / dateSpecificDatas.length);
   }
 
-  // if a.numSteps < b.numSteps
-    // push the activity obj into the acc
-  // else acc return [b]
-
-  // if result.length >= 3 return result
-  // else return noStreak
-
-    // started function for real world date checker
-  // compareDates(a, b) {
-  //   let date = a.split('/')
-  //   let month =
-  //   let day =
-  //   if(){}
-  // }
-
   getStepIncreaseOverThreeDays(activity, id) {
     let activities = this.getUserById(id);
     let trend = activities.reduce((acc, day, index) => {

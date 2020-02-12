@@ -670,9 +670,6 @@ var myChart9 = new Chart(ctx9, {
     }
 });
 
-
-
-
 var ctx10 = document.getElementById('myChart10');
 var myChart10 = new Chart(ctx10, {
     type: 'bar',
@@ -734,6 +731,44 @@ var myChart11 = new Chart(ctx11, {
                 'rgba(54, 162, 235, 1)',
                 'rgba(255, 99, 132, 1)',
                 'rgba(54, 162, 235, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+
+var ctx12 = document.getElementById('myChart12');
+var myChart12 = new Chart(ctx12, {
+    type: 'bar',
+    data: {
+        labels: [`${activityRepo.getStepIncreaseOverThreeDays('numSteps', user.id)[0]} to ${activityRepo.getStepIncreaseOverThreeDays('numSteps', user.id)[1]}`, `${activityRepo.getStepIncreaseOverThreeDays('numSteps', user.id)[3]} to ${activityRepo.getStepIncreaseOverThreeDays('numSteps', user.id)[4]}`, `${activityRepo.getStepIncreaseOverThreeDays('numSteps', user.id)[6]} to ${activityRepo.getStepIncreaseOverThreeDays('numSteps', user.id)[7]}`, `${activityRepo.getStepIncreaseOverThreeDays('numSteps', user.id)[9]} to ${activityRepo.getStepIncreaseOverThreeDays('numSteps', user.id)[10]}`, `${activityRepo.getStepIncreaseOverThreeDays('numSteps', user.id)[12]} to ${activityRepo.getStepIncreaseOverThreeDays('numSteps', user.id)[13]}`, `${activityRepo.getStepIncreaseOverThreeDays('numSteps', user.id)[15]} to ${activityRepo.getStepIncreaseOverThreeDays('numSteps', user.id)[16]}`, `${activityRepo.getStepIncreaseOverThreeDays('numSteps', user.id)[18]} to ${activityRepo.getStepIncreaseOverThreeDays('numSteps', user.id)[19]}`],
+        datasets: [{
+            label: '3 Day Increasing Step Streak',
+            data: [activityRepo.getStepIncreaseOverThreeDays('numSteps', user.id)[2], activityRepo.getStepIncreaseOverThreeDays('numSteps', user.id)[5], activityRepo.getStepIncreaseOverThreeDays('numSteps', user.id)[8], activityRepo.getStepIncreaseOverThreeDays('numSteps', user.id)[11], activityRepo.getStepIncreaseOverThreeDays('numSteps', user.id)[14], activityRepo.getStepIncreaseOverThreeDays('numSteps', user.id)[17], activityRepo.getStepIncreaseOverThreeDays('numSteps', user.id)[20]],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
             ],
             borderWidth: 1
         }]
