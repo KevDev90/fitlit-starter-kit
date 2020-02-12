@@ -34,17 +34,17 @@ function populateCurrentDate() {
 
 function populateHydrationInfo() {
   document.getElementById('hydration-today').innerText = `${hydration.getDailyHydration(user.id, '2019/07/05')} Ounces!`;
-  document.getElementById('weeks-water').innerText = hydration.getWeeklyHydration(user.id, '2019/07/05')
+  // document.getElementById('weeks-water').innerText = hydration.getWeeklyHydration(user.id, '2019/07/05')
 }
 
 populateHydrationInfo();
 
-function calcStepPercentage() {
-  document.getElementById('step-goal-comparison').innerText = user.dailyStepGoal;
-  document.getElementById('all-user-step-goal').innerText = userRepository.calcAverageStepGoal();
-}
+// function calcStepPercentage() {
+//   document.getElementById('step-goal-comparison').innerText = user.dailyStepGoal;
+//   document.getElementById('all-user-step-goal').innerText = userRepository.calcAverageStepGoal();
+// }
 
-calcStepPercentage();
+// calcStepPercentage();
 
 populateCurrentDate();
 
@@ -139,7 +139,7 @@ var myChart = new Chart(ctx, {
 });
 
 var ctx2 = document.getElementById('myChart2');
-var myChart = new Chart(ctx2, {
+var myChart2 = new Chart(ctx2, {
     type: 'line',
     data: {
         labels: ['June 29', 'June 30', 'July 1', 'July 2', 'July 3', 'July 4', 'July 5'],
@@ -163,6 +163,84 @@ var myChart = new Chart(ctx2, {
                 'rgba(75, 192, 192, 1)',
                 'rgba(153, 102, 255, 1)',
                 'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+
+var ctx3 = document.getElementById('myChart3');
+var myChart3 = new Chart(ctx3, {
+    type: 'line',
+    data: {
+        labels: ['June 29', 'June 30', 'July 1', 'July 2', 'July 3', 'July 4', 'July 5'],
+        datasets: [{
+            label: 'Your Weekly Sleep (hours)',
+            data: [sleep.getSleepHoursByWeek(user.id, date)[0], sleep.getSleepHoursByWeek(user.id, date)[1], sleep.getSleepHoursByWeek(user.id, date)[2], sleep.getSleepHoursByWeek(user.id, date)[3], sleep.getSleepHoursByWeek(user.id, date)[4], sleep.getSleepHoursByWeek(user.id, date)[5], sleep.getSleepHoursByWeek(user.id, date)[6]],
+            backgroundColor: [
+                'rgba(60, 155, 255, 0.5)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+
+
+var ctx7 = document.getElementById('myChart7');
+var myChart7 = new Chart(ctx7, {
+    type: 'bar',
+    data: {
+        labels: ['Your Minutes Active', 'Average User Minutes Active' ],
+        datasets: [{
+            label: 'Daily Minutes Active',
+            data: [activity.getDailyActivityStatForDate('minutesActive', date), activityRepo.getAllAvgActivityByDate('minutesActive', date)],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(153, 102, 255, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)'
             ],
             borderWidth: 1
         }]
